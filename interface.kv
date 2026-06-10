@@ -1,0 +1,72 @@
+MDScreen:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        padding: "20dp"
+
+        MDLabel:
+            text: "Cliente Modbus TCP"
+            halign: "center"
+
+        MDTextField:
+            id: ip
+            hint_text: "IP do servidor"
+
+        MDTextField:
+            id: porta
+            hint_text: "Porta"
+
+        MDTextField:
+            id: endereco
+            hint_text: "Endereco Modbus"
+
+        MDTextField:
+            id: valor
+            hint_text: "Valor"
+
+        MDLabel:
+            text: "Tipo de dado"
+            halign: "left"
+
+        Spinner:
+            id: tipo
+            text: "Coil"
+            values: ["Coil", "Holding Register", "Float", "Bits"]
+
+        BoxLayout:
+            size_hint_y: None
+            height: "40dp"
+            spacing: "10dp"
+
+            MDCheckbox:
+                id: recorrente
+
+            MDLabel:
+                text: "Leitura recorrente"
+
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            spacing: "10dp"
+
+            MDRaisedButton:
+                text: "Conectar"
+                on_release: app.conectar()
+
+            MDRaisedButton:
+                text: "Ler"
+                on_release: app.ler()
+
+            MDRaisedButton:
+                text: "Escrever"
+                on_release: app.escrever()
+
+        MDLabel:
+            text: "Resultado"
+            halign: "center"
+
+        MDLabel:
+            id: resultado
+            text: "-"
+            halign: "center"
